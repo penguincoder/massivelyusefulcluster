@@ -1,0 +1,7 @@
+MassivelyUsefulCluster 0.1
+
+This guy is cool. It will run a specified command on any theoretical number of machines at once. It can also copy any number of files to any number of remote machines. Just run it without arguments to get an idea of the syntax.
+
+It will take two options for servers, though. One is a file, which it expects to find one server per line. The other is directly putting the hostname of the computer on the command line. You may mix and match as many of either as you would like.
+
+Currently, it puts all of the standard out before all of the standard error. This is a known issue with Java 1.4 to which i am currently bound from upgrading. Java VM 1.5 does not have this issue; so if you use a ProcessBuilder, you can get all of the output in order.
