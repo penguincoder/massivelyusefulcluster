@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<project name="Mass" default="jar" basedir=".">
+	<property name="src" value="${basedir}/src" />
+	<property name="build" value="${basedir}/bin" />
+	<property name="output" value="${basedir}" />
+
+	<target name="clean" description="Cleans the source tree of build files">
+		<delete>
+			<fileset dir="${build}" />
+			<fileset dir="${output}" includes="*.jar" />
+		</delete>
+	</target>
+
+	<target name="build" description="Compiles the Java classes in the source directory">
+		<mkdir dir="${build}" />
+		<javac srcdir="${src}" destdir="${build}" source="1.4">
+			<compilerarg value="-Xlint:unchecked" />
+		</javac>
+	</target>
+
+	<target name="jar" depends="build" description="Makes a distributable Jar file for the project">
+		<jar jarfile="${output}/mass.jar" basedir="${build}" compress="true">
+			<manifest>
+				<attribute name="Main-Class" value="org.penguincoder.mass.Manager" />
+			</manifest>
+		</jar>
+	</target>
+
+</project>
