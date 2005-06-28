@@ -119,7 +119,7 @@ public class Manager {
          * args2 to remove the hack.
          */
         String[] args = null;
-        if ( args2[0].indexOf ( "Manager" ) > 0 ) {
+        if ( args2.length >= 1 && args2[0].indexOf ( "Manager" ) > 0 ) {
             args = new String[args2.length - 1];
             for ( int i = 1; i < args2.length; i++ ) {
                 args[i - 1] = args2[i];
