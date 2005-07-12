@@ -165,6 +165,12 @@ public class Manager {
         for ( int i = 0; j < args.length; j++, i++ ) {
             commandArgs[i] = args[j];
         }
+        
+        /* bail out early if there are no servers found */
+        if ( serverlist.size() == 0 ) {
+            usage ();
+            System.exit ( 1 );
+        }
 
         /* start the textual report */
         generateTextReport ( command, commandArgs );
